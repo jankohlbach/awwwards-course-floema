@@ -1,0 +1,37 @@
+.about__gallery {
+  position: relative;
+  margin: 15rem 0;
+  height: 58.6rem;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.about__gallery__wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.about__gallery__media {
+  position: relative;
+  width: 30.9rem;
+  height: 43.7rem;
+  margin: 0 4rem;
+}
+
+.about__gallery__media__image {
+  @extend %cover;
+
+  object-fit: cover;
+}

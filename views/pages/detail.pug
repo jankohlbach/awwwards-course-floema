@@ -1,0 +1,40 @@
+extends ../base.pug
+
+block variables
+  - var template = 'detail'
+
+block content
+  .detail(data-background="#bc978c", data-color="#f9f1e7")
+    .detail__wrapper
+      figure.detail__media
+        img.detail__media__image(alt=product.data.image.alt, data-src=product.data.image.url)
+
+      .detail__information
+        p.detail__information__collection=product.data.collection.data.title
+
+        h1.detail__information__title=product.data.title
+
+        .detail__information__content
+          .detail__information__highlights
+            each highlight in product.data.highlights
+              p.detail__information__highlight
+                if highlight.highlights_icon.toLowerCase() === 'arrow'
+                  | <svg class="detail__information__highlight__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g data-name="Ellipse 4" fill="none" stroke="#fff" opacity=".4"><circle cx="20" cy="20" r="20" stroke="none"/><circle cx="20" cy="20" r="19.5"/></g><g data-name="Group 952" fill="#fff"><path data-name="Polygon 1" d="M30.753 9.546l-.66 2.357-.047 2.593-1.933-2.31-2.31-1.932 2.593-.048z"/><path data-name="Polygon 2" d="M10.247 30.053l.66-2.357.047-2.593 1.932 2.31 2.31 1.932-2.592.048z"/></g><path data-name="Line 2" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2" opacity=".4" d="M14.843 25.456l11.314-11.314"/></svg>
+                else
+                  | <svg class="detail__information__highlight__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><g data-name="Group 953"><g data-name="Ellipse 5" fill="none" stroke="#fff" opacity=".4"><circle cx="20" cy="20" r="20" stroke="none"/><circle cx="20" cy="20" r="19.5"/></g><path data-name="Path 3468" d="M24.265 9.866l-2.755 8.6 8.718-2.634-8.158 4.134 8.154 4.265-8.714-2.819 2.822 8.906-4.265-8.342-4.139 8.154 2.634-8.718-8.597 2.754 8.154-4.2-8.342-4.328 8.78 2.823-2.822-8.781 4.327 8.342z" fill="#fff"/></g></svg>
+
+                span.detail__information__highlight__text!=highlight.highlights_text.replace(/\n/g, '<br>')
+
+          .detail__information__list
+            each item in product.data.informations
+              p.detail__information__item
+                strong.detail__information__item__title=item.informations_label
+                span.detail__information__item__description=item.informations_description
+
+          a.detail__information__link(href=product.data.link_url.url, target="_blank")=product.data.link_text
+
+    a.detail__button(href=Link(home.data.collections)) Close
+      svg.detail__button__icon(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 124 60")
+        path(stroke="currentColor", fill="none", d="M62,0.5c33.97,0,61.5,13.21,61.5,29.5S95.97,59.5,62,59.5S0.5,46.29,0.5,30S28.03,0.5,62,0.5z")
+        path.detail__button__icon__path(stroke="#ffc400", fill="none", d="M62,0.5c33.97,0,61.5,13.21,61.5,29.5S95.97,59.5,62,59.5S0.5,46.29,0.5,30S28.03,0.5,62,0.5z")
+

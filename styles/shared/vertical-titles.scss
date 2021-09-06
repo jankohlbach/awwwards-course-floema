@@ -1,0 +1,28 @@
+%vertical-titles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  display: flex;
+  align-items: center;
+}
+
+%vertical-titles__label {
+  @extend %description-12;
+
+  margin: 0 3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  transform: rotate(90deg);
+
+  @include media('<phone') {
+    font-size: 1.2rem;
+  }
+}
+
+%vertical-titles__title {
+  @extend %title-200;
+
+  padding-top: 2rem;
+}

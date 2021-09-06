@@ -1,0 +1,26 @@
+%cover {
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+%center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin ratio ($height, $width) {
+  position: absolute;
+  font-size: 0;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+    padding-top: $width / $height * 100%;
+  }
+}
